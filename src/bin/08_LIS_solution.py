@@ -27,7 +27,7 @@ def longest_subsequence(nums: list[int]) -> list[int]:
     return longest
 
 
-nums = list(range(10))
+nums = [8, 6, 7, 5, 3, 10, 9]
 
 longest = longest_subsequence(nums)
 

@@ -22,7 +22,7 @@ def lis_dynamic(nums: list[float]) -> int:
     return int(table[0, 0])
 
 
-nums: list[float] = [8, 7]
+nums: list[float] = [8, 6, 7, 5, 3, 10, 9]
 answer = lis_dynamic(nums)
 
 print(answer)

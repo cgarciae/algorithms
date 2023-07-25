@@ -11,7 +11,7 @@ def longest_subquence(
     elem = nums[0]
     nums = nums[1:]
 
-    if prev is not None and elem <= prev:
+    if prev is not None and prev >= elem:
         return longest_subquence(nums, prev)
 
     return max(

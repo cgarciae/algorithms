@@ -17,7 +17,7 @@ def all_subquences(
         yield from all_subquences(nums, (*seq, elem))  # add
 
 
-nums = list(range(5))
+nums = [8, 6, 7, 5, 3, 10, 9]
 
 for subsequences in all_subquences(nums, ()):
     print(f"seq={subsequences}, len={len(subsequences)}")
