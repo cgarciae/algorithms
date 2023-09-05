@@ -3,5 +3,12 @@
         "./Cargo.toml",
         "./Cargo.toml"
     ],
-    "rust-analyzer.showUnlinkedFileNotification": false
+    "rust-analyzer.showUnlinkedFileNotification": false,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "black-formatter.path": [
+        "${workspaceFolder}/.venv/bin/pyink",
+    ],
+    "editor.tabSize": 2,
 }

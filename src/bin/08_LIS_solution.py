@@ -2,29 +2,29 @@ import typing as tp
 
 
 def _longest_subsequence(nums: list[int], current: list[int], longest: list[int]):
-    if not nums:
-        return
+  if not nums:
+    return
 
-    elem = nums[0]
-    nums = nums[1:]
+  elem = nums[0]
+  nums = nums[1:]
 
-    # with element
-    if not current or elem > current[-1]:
-        current.append(elem)
-        if len(current) > len(longest):
-            longest[:] = current
-        _longest_subsequence(nums, current, longest)
-        current.pop()
-
-    # without element
+  # with element
+  if not current or elem > current[-1]:
+    current.append(elem)
+    if len(current) > len(longest):
+      longest[:] = current
     _longest_subsequence(nums, current, longest)
+    current.pop()
+
+  # without element
+  _longest_subsequence(nums, current, longest)
 
 
 def longest_subsequence(nums: list[int]) -> list[int]:
-    longest = []
-    current = []
-    _longest_subsequence(nums, current, longest)
-    return longest
+  longest = []
+  current = []
+  _longest_subsequence(nums, current, longest)
+  return longest
 
 
 nums = [8, 6, 7, 5, 3, 10, 9]

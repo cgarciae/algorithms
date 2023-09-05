@@ -1,11 +1,11 @@
 fn is_median(a: i32, b: i32, c: i32) -> bool {
-    return (a <= b && a >= c) || (a <= c && a >= b);
+    return (b <= a && a <= c) || (c <= a && a <= b);
 }
 
 fn select(array: &[i32]) -> usize {
     let first = *array.first().unwrap();
-    let last = *array.last().unwrap();
     let middle = array[array.len() / 2];
+    let last = *array.last().unwrap();
 
     if is_median(first, middle, last) {
         return 0;

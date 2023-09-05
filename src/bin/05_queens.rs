@@ -1,11 +1,12 @@
-fn place_queen(queens: &mut Vec<usize>, r: usize) {
+fn place_queen(queens: &mut Vec<usize>) {
     if queens.len() == 8 {
         println!("{queens:?}");
+        return;
     }
 
     for p in 0..8 {
         let mut is_valid = true;
-        for (i, pi) in queens.clone().iter().rev().enumerate() {
+        for (i, pi) in queens.iter().rev().enumerate() {
             let i = (i + 1) as i32;
             let p = p as i32;
             let pi = *pi as i32;
@@ -17,7 +18,7 @@ fn place_queen(queens: &mut Vec<usize>, r: usize) {
 
         if is_valid {
             queens.push(p);
-            place_queen(queens, r + 1);
+            place_queen(queens);
             queens.pop();
         }
     }
@@ -26,5 +27,5 @@ fn place_queen(queens: &mut Vec<usize>, r: usize) {
 fn main() {
     let mut queens = Vec::<usize>::new();
 
-    place_queen(&mut queens, 0);
+    place_queen(&mut queens);
 }
