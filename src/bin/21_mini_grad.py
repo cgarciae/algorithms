@@ -313,6 +313,21 @@ for i in range(10_000 + 1):
     p.value += -step_size * p.grad
 
   loss.zero_grad()
+
+# plot decision boundary
+x = np.linspace(inputs.value[:, 0].min(), inputs.value[:, 0].max(), 100)
+y = np.linspace(inputs.value[:, 1].min(), inputs.value[:, 1].max(), 100)
+xx, yy = np.meshgrid(x, y)
+grid_inputs = np.stack([xx, yy], axis=-1)
+grid_preds = model(Array(grid_inputs)).value
+grid_labels = np.argmax(grid_preds, axis=-1)
+plt.contourf(xx, yy, grid_labels)
+# scatter with black borders
+plt.scatter(
+    inputs.value[:, 0], inputs.value[:, 1], c=labels.value, s=40, edgecolors="k"
+)
+plt.show()
+
 # ----------------------------------------
 # tests
 # ----------------------------------------
