@@ -257,7 +257,6 @@ class Linear(Module):
 # example
 # ----------------------------------------
 import matplotlib.pyplot as plt
-from sklearn.datasets import make_blobs
 
 
 class Classifier(Module):
@@ -299,12 +298,12 @@ params = list(model.parameters())
 # some hyperparameters
 step_size = 1e-3
 
-for i in range(10_000):
+for i in range(10_000 + 1):
   logits = model(inputs)
   loss = mean(cross_entropy_with_logits(logits, labels))
   loss.backward()
 
-  if i % 10 == 0:
+  if i % 100 == 0:
     scores = model(inputs).value
     predicted_class = np.argmax(scores, axis=1)
     accuracy = np.mean(predicted_class == labels.value)
